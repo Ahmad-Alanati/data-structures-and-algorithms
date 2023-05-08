@@ -3,6 +3,7 @@
 ## Whiteboard
 
 ![whiteboard](./image/whiteboard.jpg)
+![whiteboard](./image/whiteboard1.jpg)
 
 ## Solution
 
