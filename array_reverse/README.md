@@ -2,32 +2,17 @@
 
 ## whitebord
 
-![whitebord](./white%20bord.png)
+![whitebord](./assits/whitebord.jpg)
 
-## tests
+## Solution
+array reverse  code
 
-        arr = [1, 2, 3, 4, 5]
+if we say that arr =[1,2,3,4,5] my code will 
+1. first call the function array reverse in a recarseve way
+2. untill the array length is 1 or less return array
+3. then the parents function return the child funtion + arr[0]
 
-        arr2 = [1, 2, 3, 4, 5, 6]
+example of the code running
 
-        arr3 = [89, 2354, 3546, 23, 10, -923, 823, -12]
-
-        arr4 = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73,79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199]
-
-## results
-
-        [5, 4, 3, 2, 1]
-
-        [6, 5, 4, 3, 2, 1]
-
-        [-12, 823, -923, 10, 23, 3546, 2354, 89]
-
-        [199, 197, 193, 191, 181, 179, 173, 167, 163, 157, 151, 149, 139, 137, 131, 127, 113, 109, 107, 103, 101, 97, 89, 83, 79, 73, 71, 67, 61, 59, 53, 47, 43, 41, 37, 31, 29, 23, 19, 17, 13, 11, 7, 5, 3, 2]
-
-## code
-
-        def reverse_array(arr):
-            if len(arr) <= 1:
-                return arr
-            else:
-                return reverse_array(arr[1:]) + [arr[0]]
+![example](./assits/Screenshot%20(174).png)
+##### here is an image of my test file and the output of the tests
