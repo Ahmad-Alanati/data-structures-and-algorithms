@@ -25,3 +25,4 @@ def remove_middle_element(arr):
             newarr.append(arr[i])
     return newarr
 
+
