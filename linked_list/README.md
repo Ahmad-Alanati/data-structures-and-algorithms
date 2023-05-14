@@ -1,5 +1,4 @@
-# Challenge Title
-<!-- Description of the challenge -->
+# linked list
 
 ## Whiteboard Process
 <!-- Embedded whiteboard image -->
