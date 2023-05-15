@@ -33,7 +33,7 @@ def test_linked_list_four():
     expected = True
     assert actual == expected
 
-def test_linked_list_six():
+def test_linked_list_five():
     test_linked_list = LinkedList()
     linked_list2 = LinkedList()
     linked_list2.insert(7)
