@@ -1,13 +1,14 @@
+import math
+
 class Node:
-    def __init__(self,value,_next=None,_back=None):
+    def __init__(self,value,_next=None):
         self.value = value
         self.next = _next
-        self.back = _back
-    
+      
     def __str__(self):
         return "{ "+str(self.value)+" }"
 
-class DoublyLinkedList:
+class LinkedList:
     def __init__(self,head=None):
         self.head = head
 
@@ -15,27 +16,13 @@ class DoublyLinkedList:
         if not isinstance(value,Node):
             new_node = Node(value)
             new_node.next = self.head
-            if self.head != None:
-                self.head.back = new_node
             self.head = new_node
         else:
             current = value
             while current.next != None:
                 current = current.next
             current.next = self.head
-            if self.head != None:
-                self.head.back = current
             self.head = value
-
-
-    def includes(self,value):
-        current = self.head
-        while current:
-            if current.value == value:
-                return True
-            else:
-                current = current.next
-        return False
     
     def __str__(self):
         if self.head == None:
@@ -49,11 +36,24 @@ class DoublyLinkedList:
                 break
             else:
                 current = current.next
-        values+="\nNow from the back\nNull"
-        while True:
-            values += " -> "+str(current)
-            if current.back == None:
-                break
-            else:
-                current = current.back
         return values
+
+    def max(self):
+      current_node = self.head
+      max = -math.inf
+      while current_node != None:
+        if current_node.value > max:
+          max = current_node.value
+        current_node = current_node.next
+      return max
+
+
+linked_list = LinkedList()
+print(linked_list)
+linked_list.insert(-1)
+linked_list.insert(-2)
+linked_list.insert(5)
+linked_list.insert(-5)
+linked_list.insert(-1)
+print(linked_list)
+print(linked_list.max())
