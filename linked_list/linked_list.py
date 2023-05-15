@@ -35,6 +35,15 @@ class LinkedList:
                 current = current.next
         return False
     
+    def append(self,value):
+        pass
+
+    def insert_before(self,value,new_value):
+        pass
+
+    def insert_after(self,value,new_value):
+        pass
+    
     def __str__(self):
         if self.head == None:
             return "there is no element in the list"
