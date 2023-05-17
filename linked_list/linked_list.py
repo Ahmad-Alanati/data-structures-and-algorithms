@@ -13,12 +13,9 @@ class LinkedList:
 
     def insert(self,value):
         if not isinstance(value,Node):
-            print("hello1")
-            new_node = Node(value)
-            new_node.next = self.head
+            new_node = Node(value,self.head)
             self.head = new_node
         else:
-            print("hello2")
             current = value
             while current.next != None:
                 current = current.next
@@ -34,6 +31,62 @@ class LinkedList:
             else:
                 current = current.next
         return False
+    
+    def append(self,value):
+        current = self.head
+        if not current:
+            self.insert(value)
+            return
+        while current.next:
+            current = current.next
+        if not isinstance(value,Node):
+            new_node = Node(value)
+            current.next = new_node
+        else:
+            current.next = value
+
+
+    def insert_before(self,list_value,new_value):
+        current = self.head
+        if current.value == list_value:
+            self.insert(new_value)
+            return
+        while current.next and current.next.value != list_value:
+            current = current.next
+        if not current.next:
+            return
+        if not isinstance(new_value,Node):
+            new_node = Node(new_value,current.next)
+            current.next = new_node
+        else:
+            new_value_current = new_value
+            while new_value_current.next:
+                new_value_current = new_value_current.next
+            new_value_current.next = current.next
+            current.next = new_value
+
+    def insert_after(self,list_value,new_value):
+        current = self.head
+        if not current:
+            self.insert(new_value)
+            return
+        while current.next and current.value != list_value:
+            current = current.next
+        if current.value == list_value and not current.next:
+            self.append(new_value)
+            return
+        elif not current.next:
+            return
+        if not isinstance(new_value,Node):
+            new_node = Node(new_value,current.next)
+            current.next = new_node
+        else:
+            new_value_current = new_value
+            while new_value_current.next:
+                new_value_current = new_value_current.next
+            new_value_current.next = current.next
+            current.next = new_value
+        
     
     def __str__(self):
         if self.head == None:
@@ -103,20 +156,21 @@ class DoublyLinkedList:
 if __name__ == "__main__":
     linked_list = LinkedList()
     print(linked_list)
-    linked_list.insert(1)
-    linked_list.insert(2)
-    linked_list.insert(3)
+    linked_list.append(1)
+    linked_list.append(3)
+    linked_list.append(2)
+    linked_list.insert_after(4, 5)
     print(linked_list)
-    print(linked_list.includes(5))
-    print(linked_list.includes(1))
-    new_node = Node(4)
-    new_node2 = Node(5,new_node)
-    new_node3 = Node(6,new_node2)
-    linked_list.insert(new_node3)
-    print(linked_list)
-    linked_list2 = LinkedList()
-    linked_list2.insert(7)
-    linked_list2.insert(8)
-    linked_list2.insert(9)
-    linked_list.insert(linked_list2.head)
-    print(linked_list)
+    # print(linked_list.includes(5))
+    # print(linked_list.includes(1))
+    # new_node = Node(6)
+    # new_node2 = Node(5,new_node)
+    # new_node3 = Node(4,new_node2)
+    # linked_list.insert_before(4,new_node3)
+    # print(linked_list)
+    # linked_list2 = LinkedList()
+    # linked_list2.append(7)
+    # linked_list2.append(8)
+    # linked_list2.append(9)
+    # linked_list.insert_before(2,linked_list2.head)
+    # print(linked_list)
