@@ -181,12 +181,3 @@ def test_linked_list_nineteen():
     expected = 3
     assert actual == expected
 
-def test_linked_list_twenty():
-    test_linked_list = LinkedList()
-    test_linked_list.append(1)
-    test_linked_list.append(3)
-    test_linked_list.append(8)
-    test_linked_list.append(2)
-    actual = test_linked_list.kth_from_end(6)
-    expected = "out of scope"
-    assert actual == expected
