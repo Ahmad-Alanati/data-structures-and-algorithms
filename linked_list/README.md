@@ -1,5 +1,8 @@
 # linked list
 
+## Whiteboard Process
+
+![whiteboard](./images/whiteboard.jpg)
 
 ## Approach & Efficiency
 the aproach is to make the base (node and linked list) and test it before starting with adding and more
