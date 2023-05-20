@@ -160,3 +160,24 @@ def test_linked_list_seventeen():
     actual = str(test_linked_list)
     expected = "{ 1 } -> { 3 } -> { 2 } -> NULL"
     assert actual == expected
+
+def test_linked_list_eighteen():
+    test_linked_list = LinkedList()
+    test_linked_list.append(1)
+    test_linked_list.append(3)
+    test_linked_list.append(8)
+    test_linked_list.append(2)
+    actual = test_linked_list.kth_from_end(0)
+    expected = 2
+    assert actual == expected
+
+def test_linked_list_nineteen():
+    test_linked_list = LinkedList()
+    test_linked_list.append(1)
+    test_linked_list.append(3)
+    test_linked_list.append(8)
+    test_linked_list.append(2)
+    actual = test_linked_list.kth_from_end(2)
+    expected = 3
+    assert actual == expected
+

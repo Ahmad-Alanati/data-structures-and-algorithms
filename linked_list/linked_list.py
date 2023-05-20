@@ -100,6 +100,23 @@ class LinkedList:
             values += str(current)+" -> "
             current = current.next
         return values
+    
+    def kth_from_end(self,k):
+        current = self.head
+        length = 0
+        while current:
+            length+=1
+            current = current.next
+        current = self.head
+        if  k >= length:
+            raise ValueError("out of scope")
+        if k<0:
+            raise ValueError("Negative value not accepted")
+        length-=k
+        while length!=1 and current:
+            current = current.next
+            length-=1
+        return current.value
 
 
 class DoublyLinkedList:
@@ -161,6 +178,7 @@ if __name__ == "__main__":
     linked_list.append(2)
     linked_list.insert_after(4, 5)
     print(linked_list)
+    print(linked_list.kth_from_end(-1))
     # print(linked_list.includes(5))
     # print(linked_list.includes(1))
     # new_node = Node(6)
