@@ -1,4 +1,5 @@
 from stacks_and_queues import Stack,Queue
+import pytest
 
 def test_stack_one():
     new_stack = Stack()
@@ -15,9 +16,9 @@ def test_stack_two():
 
 def test_stack_three():
     new_stack = Stack()
-    actual = new_stack.peek()
-    expected = "the stack is empty"
-    assert actual == expected
+    with pytest.raises(Exception):
+        new_stack.peek()
+    
 
 def test_stack_four():
     new_stack = Stack()
@@ -53,9 +54,8 @@ def test_stack_seven():
 
 def test_stack_eight():
     new_stack = Stack()
-    actual = new_stack.pop()
-    expected = "you can't pop from an empty stack"
-    assert actual == expected
+    with pytest.raises(Exception):
+        new_stack.peek()
 
 # queue
 
@@ -74,9 +74,8 @@ def test_queue_two():
 
 def test_queue_three():
     new_queue = Queue()
-    actual = new_queue.peek()
-    expected = "the queue is empty"
-    assert actual == expected
+    with pytest.raises(Exception):
+        new_queue.peek()
 
 def test_queue_four():
     new_queue = Queue()
@@ -112,6 +111,5 @@ def test_queue_seven():
 
 def test_queue_eight():
     new_queue = Queue()
-    actual = new_queue.dequeue()
-    expected = "you can't dequeue form an empty queue"
-    assert actual == expected
+    with pytest.raises(Exception):
+        new_queue.dequeue()

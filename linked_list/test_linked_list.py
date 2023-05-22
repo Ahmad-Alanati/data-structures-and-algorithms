@@ -1,4 +1,5 @@
 from linked_list import Node,LinkedList
+import pytest
 
 def test_linked_list_one():
     test_linked_list = LinkedList()
@@ -180,4 +181,76 @@ def test_linked_list_nineteen():
     actual = test_linked_list.kth_from_end(2)
     expected = 3
     assert actual == expected
+
+
+# zipLists
+
+def test_linked_list_twenty():
+    test_linked_list = LinkedList()
+    test_linked_list.append(1)
+    test_linked_list.append(3)
+    test_linked_list.append(2)
+
+    test_linked_list2 = LinkedList()
+    test_linked_list2.append(5)
+    test_linked_list2.append(9)
+    test_linked_list2.append(4)
+    actual = str(LinkedList.zipLists(test_linked_list,test_linked_list2))
+    expected = "{ 1 } -> { 5 } -> { 3 } -> { 9 } -> { 2 } -> { 4 } -> NULL"
+    assert actual == expected
+
+def test_linked_list_twenty_one():
+    test_linked_list = LinkedList()
+    test_linked_list.append(1)
+    test_linked_list.append(3)
+    test_linked_list.append(2)
+
+    test_linked_list2 = LinkedList()
+    test_linked_list2.append(5)
+    test_linked_list2.append(9)
+    actual = str(LinkedList.zipLists(test_linked_list,test_linked_list2))
+    expected = "{ 1 } -> { 5 } -> { 3 } -> { 9 } -> { 2 } -> NULL"
+    assert actual == expected
+
+def test_linked_list_twenty_two():
+    test_linked_list = LinkedList()
+    test_linked_list.append(1)
+    test_linked_list.append(3)
+
+    test_linked_list2 = LinkedList()
+    test_linked_list2.append(5)
+    test_linked_list2.append(9)
+    test_linked_list2.append(4)
+    actual = str(LinkedList.zipLists(test_linked_list,test_linked_list2))
+    expected = "{ 1 } -> { 5 } -> { 3 } -> { 9 } -> { 4 } -> NULL"
+    assert actual == expected
+
+def test_linked_list_twenty_three():
+    test_linked_list = LinkedList()
+
+    test_linked_list2 = LinkedList()
+    test_linked_list2.append(5)
+    test_linked_list2.append(9)
+    test_linked_list2.append(4)
+    actual = str(LinkedList.zipLists(test_linked_list,test_linked_list2))
+    expected = "{ 5 } -> { 9 } -> { 4 } -> NULL"
+    assert actual == expected
+
+def test_linked_list_twenty_four():
+    test_linked_list = LinkedList()
+    test_linked_list.append(1)
+    test_linked_list.append(3)
+    test_linked_list.append(2)
+
+    test_linked_list2 = LinkedList()
+    actual = str(LinkedList.zipLists(test_linked_list,test_linked_list2))
+    expected = "{ 1 } -> { 3 } -> { 2 } -> NULL"
+    assert actual == expected
+
+def test_linked_list_twenty_five():
+    test_linked_list = LinkedList()
+
+    test_linked_list2 = LinkedList()
+    with pytest.raises(Exception):
+        actual = str(LinkedList.zipLists(test_linked_list,test_linked_list2))
 

@@ -20,8 +20,8 @@ class Stack:
             self.top = self.top.next
             temp.next = None
             return temp
-        except:
-            return "you can't pop from an empty stack"
+        except KeyError as err:
+            return err
 
     def peek(self):
         try:
@@ -29,8 +29,8 @@ class Stack:
                 return self.top
             else:
                 raise Exception("stack error")
-        except:
-            return "the stack is empty"
+        except KeyError as err:
+            return err
         
     def is_empty(self):
         return True if self.top == None else False
@@ -70,8 +70,8 @@ class Queue:
                 temp = self.back
                 self.back = self.front = self.front.next
                 return temp
-         except:
-             return "you can't dequeue form an empty queue"
+         except KeyError as err:
+             return err
 
     def peek(self):
         try:
@@ -79,8 +79,8 @@ class Queue:
                 return self.front
             else:
                 raise Exception("queue error")
-        except:
-            return "the queue is empty"
+        except KeyError as err:
+            return err
         
     def is_empty(self):
         return True if self.front == None else False
@@ -88,29 +88,29 @@ class Queue:
 
 
 if __name__ == "__main__":
-    # new_stack = Stack()
-    # print(new_stack.is_empty())
-    # print(new_stack.peek())
-    # new_stack.push(5)
-    # print(new_stack.is_empty())
-    # print(new_stack.peek())
-    # new_stack.push(6)
-    # print(new_stack.peek())
-    # print(new_stack.pop())
-    # print(new_stack.pop())
-    # print(new_stack.pop())
-    new_queue = Queue()
+    new_stack = Stack()
+    print(new_stack.is_empty())
+    print(new_stack.peek())
+    new_stack.push(5)
+    print(new_stack.is_empty())
+    print(new_stack.peek())
+    new_stack.push(6)
+    print(new_stack.peek())
+    print(new_stack.pop())
+    print(new_stack.pop())
+    print(new_stack.pop())
+    # new_queue = Queue()
     #print(new_queue.is_empty())
     # print(new_queue.peek())
-    new_queue.enqueue(5)
+    # new_queue.enqueue(5)
     #print(new_queue.is_empty())
-    new_queue.enqueue(4)
+    # new_queue.enqueue(4)
     # print(new_queue.peek())
-    new_queue.enqueue(3)
-    new_queue.enqueue(2)
+    # new_queue.enqueue(3)
+    # new_queue.enqueue(2)
     # print(new_queue.peek())
-    print(new_queue.dequeue())
-    print(new_queue.dequeue())
-    print(new_queue.dequeue())
-    print(new_queue.dequeue())
-    print(new_queue.dequeue())
+    # print(new_queue.dequeue())
+    # print(new_queue.dequeue())
+    # print(new_queue.dequeue())
+    # print(new_queue.dequeue())
+    # print(new_queue.dequeue())
