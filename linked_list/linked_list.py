@@ -130,7 +130,7 @@ class LinkedList:
     
     def kth_from_end(self,k):
         """
-        this function will take a value and add it at the kth element in the linked list
+        this function will take a value and get the kth element in the linked list
         """
         current = self.head
         length = 0

@@ -6,6 +6,7 @@
 ![whiteboard](./images/whiteboard2.jpg)
 ![whiteboard](./images/whiteboard3.jpg)
 ![whiteboard](./images/whiteboard4.jpg)
+![whiteboard](./images/whiteboard6.jpg)
 ![whiteboard](./images/whiteboard5.jpg)
 
 ## Approach & Efficiency
@@ -26,6 +27,10 @@ time: O(n)
 space O(1)
 
 function insert_after:
+time: O(n)
+space O(1)
+
+function kth_from_end:
 time: O(n)
 space O(1)
 
