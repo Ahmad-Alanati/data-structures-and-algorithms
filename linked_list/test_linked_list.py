@@ -162,6 +162,8 @@ def test_linked_list_seventeen():
     expected = "{ 1 } -> { 3 } -> { 2 } -> NULL"
     assert actual == expected
 
+#kth_from_end
+
 def test_linked_list_eighteen():
     test_linked_list = LinkedList()
     test_linked_list.append(1)
@@ -182,6 +184,19 @@ def test_linked_list_nineteen():
     expected = 3
     assert actual == expected
 
+def test_linked_list_kth_one():
+    test_linked_list = LinkedList()
+    test_linked_list.append(1)
+    test_linked_list.append(3)
+    with pytest.raises(Exception):
+        actual = test_linked_list.kth_from_end(2)
+
+def test_linked_list_kth_two():
+    test_linked_list = LinkedList()
+    test_linked_list.append(1)
+    test_linked_list.append(3)
+    with pytest.raises(Exception):
+        actual = test_linked_list.kth_from_end(-5)
 
 # zipLists
 
