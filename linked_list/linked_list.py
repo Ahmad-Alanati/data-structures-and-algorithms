@@ -114,7 +114,7 @@ class LinkedList:
     
     def __str__(self):
         """
-        this function will take a value and add it after a givin element in the linked list
+        this function will return the linked list as a string
         """
         if self.head == None:
             return "there is no element in the list"
@@ -129,6 +129,9 @@ class LinkedList:
         return values
     
     def kth_from_end(self,k):
+        """
+        this function will take a value and add it at the kth element in the linked list
+        """
         current = self.head
         length = 0
         while current:
