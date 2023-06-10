@@ -11,10 +11,16 @@ class Stack:
         self.top = top
 
     def push(self,value):
+        """
+        this method will add a new node to the top of stack
+        """
         new_node = Node(value,self.top)
         self.top = new_node
 
     def pop(self):
+        """
+        this method will remove a new node from top of stack and return it
+        """
         try:
             temp = self.top
             self.top = self.top.next
@@ -24,6 +30,9 @@ class Stack:
             return err
 
     def peek(self):
+        """
+        this method will return the node on top of stack
+        """
         try:
             if self.top:
                 return self.top
@@ -33,6 +42,9 @@ class Stack:
             return err
         
     def is_empty(self):
+        """
+        this method will return True if the stack is empty and false if the stack is not empty
+        """
         return True if self.top == None else False
         
         
@@ -43,20 +55,26 @@ class Queue:
         self.back = front
     
     def enqueue(self,value):
-       if self.front==None:
-           new_node = Node(value)
-           self.front = new_node
-           self.back = new_node
-       elif self.back==self.front:
-           new_node = Node(value,self.front)
-           self.back = new_node
-       else:
-           new_node = Node(value,self.back)
-           self.back = new_node
+        """
+        this method will add a new node to the back of a Queue
+        """
+        if self.front==None:
+            new_node = Node(value)
+            self.front = new_node
+            self.back = new_node
+        elif self.back==self.front:
+            new_node = Node(value,self.front)
+            self.back = new_node
+        else:
+            new_node = Node(value,self.back)
+            self.back = new_node
            
 
     def dequeue(self):
-         try:
+        """
+        this method will remove a node from the front of a Queue
+        """
+        try:
             if self.back != self.front:
                 temp = self.back
                 while temp.next != self.front:
@@ -70,10 +88,13 @@ class Queue:
                 temp = self.back
                 self.back = self.front = self.front.next
                 return temp
-         except KeyError as err:
+        except KeyError as err:
              return err
 
     def peek(self):
+        """
+        this method will return the node from the front of a Queue
+        """
         try:
             if self.front:
                 return self.front
@@ -83,6 +104,9 @@ class Queue:
             return err
         
     def is_empty(self):
+        """
+        this method will return True if the Queue is empty and false if the Queue is not empty
+        """
         return True if self.front == None else False
 
 
