@@ -38,6 +38,30 @@ class BinaryTree:
         right = self.post_order_traversal(node.right)
         return left + right + [node.value]
     
+    def maximum(self):
+        # tree_list = self.pre_order()
+        # max_value = tree_list[0]
+        # for element in tree_list:
+        #     if max_value < element:
+        #         max_value = element
+        # return max_value
+        return self.maximum_recursion(self.root)
+    
+    def maximum_recursion(self,node):
+        if not node:
+            return float('-inf')
+        maximum_node = node.value
+        left_max = self.maximum_recursion(node.left)
+        right_max = self.maximum_recursion(node.right)
+
+        if maximum_node < left_max:
+            maximum_node = left_max
+        elif maximum_node < right_max:
+            maximum_node = right_max
+        
+        return maximum_node
+
+    
 class BST(BinaryTree):
     def __init__(self):
         super().__init__()
@@ -78,13 +102,15 @@ class BST(BinaryTree):
 
 if __name__ == "__main__":
     tree = BinaryTree()
-    tree.root = Node("A")
-    tree.root.left = Node("B")
-    tree.root.right = Node("C")
-    tree.root.left.left = Node("D")
-    tree.root.left.right = Node("E")
-    tree.root.right.left = Node("F")
-    tree.root.right.right = Node("G")
+    tree.root = Node(2)
+    tree.root.left = Node(7)
+    tree.root.right = Node(5)
+    tree.root.left.left = Node(2)
+    tree.root.left.right = Node(6)
+    tree.root.left.right.left = Node(5)
+    tree.root.left.right.right = Node(11)
+    tree.root.right.right = Node(9)
+    tree.root.right.right.left = Node(4)
     bst = BST()
     bst.add(5)
     bst.add(3)
@@ -103,3 +129,5 @@ if __name__ == "__main__":
     print("BST Traversal pre-order")
     print(bst.pre_order())
     print(bst.contains(10))
+    print("maximum value:")
+    print(tree.maximum())
