@@ -9,3 +9,5 @@
 3. [Linked list](./linked_list/README.md)
 
 4. [stack and queue](./stacks%20and%20queues/README.MD)
+
+5. [insertion sort](./sorting/insertion/README.md)
