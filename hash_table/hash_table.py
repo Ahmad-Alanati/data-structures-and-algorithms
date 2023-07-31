@@ -98,6 +98,9 @@ def repeated_word(string):
     
     return None
 
+def left_joins(hash_table1,hash_table2):
+    pass
+
 
 if __name__ == "__main__":
     # hash_table = HashTable()
