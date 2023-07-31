@@ -1,6 +1,7 @@
 from linked_list_for_hash import Node,LinkedList
 from operator import mul,add
 from functools import reduce
+import re
 
 
 class HashTable:
@@ -55,7 +56,10 @@ class HashTable:
         it check if the bucket has the key then it will return true else false
         """
         value_index = self.__hash_function(key)
-        current = self.__buckets[value_index].head
+        if self.__buckets[value_index]:
+            current = self.__buckets[value_index].head
+        else:
+            return False
         while current:
             if current.value[0] == key:
                 return True
@@ -82,19 +86,31 @@ class HashTable:
             if self.__buckets[index]:
                 buckets_str += f"bucket {index}: {str(self.__buckets[index])}\n"
         return buckets_str
+    
+def repeated_word(string):
+    string_arr = re.sub(r"[,.]", "", string).lower().split()
+    hash_table = HashTable()
+    for element in string_arr:
+        if hash_table.has(element):
+            return element
+        else:
+            hash_table.set(element,1) 
+    
+    return None
 
 
 if __name__ == "__main__":
-    hash_table = HashTable()
-    hash_table.set(1,"hello")
-    hash_table.set('1','hello world')
-    hash_table.set(12,'ahmad')
-    hash_table.set(15,'mohammad')
-    print(hash_table.get(1))
-    print(hash_table.get('1'))
-    print(hash_table.get('15'))
-    print(hash_table.get_keys())
-    hash_table.set(1,"welcome")
-    print(hash_table.get(1))
-    print(str(hash_table))
+    # hash_table = HashTable()
+    # hash_table.set(1,"hello")
+    # hash_table.set('1','hello world')
+    # hash_table.set(12,'ahmad')
+    # hash_table.set(15,'mohammad')
+    # print(hash_table.get(1))
+    # print(hash_table.get('1'))
+    # print(hash_table.get('15'))
+    # print(hash_table.get_keys())
+    # hash_table.set(1,"welcome")
+    # print(hash_table.get(1))
+    # print(str(hash_table))
+    print(repeated_word("It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only..."))
 
