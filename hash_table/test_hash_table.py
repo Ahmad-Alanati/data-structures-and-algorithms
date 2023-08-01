@@ -66,3 +66,9 @@ def test_hash_table_eight():
     actual =  repeated_word(text)
     expected = "summer"
     assert actual == expected
+
+def test_hash_table_nine():
+    text = "a aa b c d e f g f a b c d e"
+    actual =  repeated_word(text)
+    expected = "f"
+    assert actual == expected
