@@ -11,3 +11,5 @@
 4. [stack and queue](./stacks%20and%20queues/README.MD)
 
 5. [insertion sort](./sorting/insertion/README.md)
+
+6. [hash table](./hash_table/README.md)
