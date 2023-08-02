@@ -13,3 +13,5 @@
 5. [insertion sort](./sorting/insertion/README.md)
 
 6. [hash table](./hash_table/README.md)
+
+7. [tree intersection](./treeIntersection/README.md)
