@@ -12,29 +12,11 @@ the aproach is to make the base and test it before starting with adding and more
 
 ### big O
 
-function set:
-time: O(1)
-space O(1)
+function tree_intersection:
 
-function get:
-time: O(1)
-space O(1)
+time: O(n*m)
 
-function has:
-time: O(1)
-space O(1)
-
-function get_keys:
-time: O(1)
-space O(1)
-
-function __hash_function:
-time: O(1)
-space O(1)
-
-function repeated_word:
-time: O(n)
-space: O(n)
+space O(n)
 
 ## Solution
 
@@ -44,6 +26,6 @@ pytest then enter
 
 or
 
-python hash_table/hash_table.py
+python treeIntersection/tree_intersection.py
 
 ![example](./images/solution.png)
