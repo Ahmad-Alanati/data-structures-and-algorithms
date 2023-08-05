@@ -2,7 +2,12 @@
 
 ## Whiteboard Process
 
-![example](./image/My%20First%20Board.jpg)
+![whiteboard](./image/whiteboard.jpg)
+![whiteboard2](./image/whiteboard3.jpg)
+![whiteboard3](./image/whiteboard4.jpg)
+![whiteboard4](./image/whiteboard5.jpg)
+![whiteboard5](./image/whiteboard6.jpg)
+![whiteboard6](./image/whiteboard2.jpg)
 
 ## Approach & Efficiency
 the aproach is to make the base of the program and test it before starting with adding and more
@@ -31,7 +36,7 @@ space O(1)
 
 function maximum:
 time: O(n)
-space O(1)
+space O(n)
 
 ## Solution
 
