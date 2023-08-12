@@ -1,4 +1,4 @@
-from linked_list_for_hash import Node,LinkedList
+from linked_list import Node,LinkedList
 from operator import mul,add
 from functools import reduce
 import re
@@ -42,7 +42,10 @@ class HashTable:
         it check if the bucket has the key then it will return the value of the key if we don't have the key then return null
         """
         value_index = self.__hash_function(key)
-        current = self.__buckets[value_index].head
+        if self.__buckets[value_index]:
+            current = self.__buckets[value_index].head
+        else:
+            return "null"
         while current:
             if current.value[0] == key:
                 return current.value[1]
@@ -77,7 +80,7 @@ class HashTable:
         this is the get hash function it take a key and return an index
         """
         return reduce(mul,[ord(char) for char in str(key)]) * 883 % self.__size
-        # reduce(add,[ord(char) for char in key]) * 883 % self.__size
+        # return reduce(add,[ord(char) for char in key]) * 883 % self.__size
         # return sum([ord(char) for char in key]) * 883 % self.__size
 
     def __str__(self):
@@ -87,29 +90,38 @@ class HashTable:
                 buckets_str += f"bucket {index}: {str(self.__buckets[index])}\n"
         return buckets_str
     
-def repeated_word(string):
-    string_arr = re.sub(r"[,.]", "", string).lower().split()
-    hash_table = HashTable()
-    for element in string_arr:
-        if hash_table.has(element):
-            return element
-        else:
-            hash_table.set(element,1) 
-    
-    return None
+
+def left_join(hashmap1,hashmap2):
+    """
+    this is left join function takes two hashmaps and return an array that contain an array of values after left joining the two hashmaps
+    """
+    hashmap_keys = hashmap1.get_keys()
+    left_join_array = []
+    for element in hashmap_keys:
+        key = element
+        first_value = hashmap1.get(element)
+        second_value = hashmap2.get(element)
+        if second_value == "null":
+            second_value = None
+        left_join_array.append([key,first_value,second_value])
+    return left_join_array
+
 
 if __name__ == "__main__":
-    # hash_table = HashTable()
-    # hash_table.set(1,"hello")
-    # hash_table.set('1','hello world')
-    # hash_table.set(12,'ahmad')
-    # hash_table.set(15,'mohammad')
-    # print(hash_table.get(1))
-    # print(hash_table.get('1'))
-    # print(hash_table.get('15'))
-    # print(hash_table.get_keys())
-    # hash_table.set(1,"welcome")
-    # print(hash_table.get(1))
-    # print(str(hash_table))
-    print(repeated_word("It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only..."))
+    hashmap1 = HashTable()
+    hashmap2 = HashTable()
+    hashmap3 = HashTable()
+    hashmap1.set("diligent","employed")
+    hashmap1.set("font","enamored")
+    hashmap1.set("guide","usher")
+    hashmap1.set("outfit","garb")
+    hashmap1.set("wrath","anger")
+    
+    hashmap2.set("diligent","idle")
+    hashmap2.set("font","averse")
+    hashmap2.set("guide","follow")
+    hashmap2.set("flow","jam")
+    hashmap2.set("wrath","delight")
+
+    print(left_join(hashmap1,hashmap2))
 
