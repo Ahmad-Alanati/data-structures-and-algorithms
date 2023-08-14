@@ -1,5 +1,8 @@
 import pytest
 from graph import Graph
+from graph_business_trip import business_trip
+
+# graph tests
 
 def test_graph_one():
     g = Graph()
@@ -74,4 +77,55 @@ def test_graph_eight():
     g.add_edge(a,a) 
     actual =  g.breadth_first(a)
     expected = ['A']
+    assert actual == expected
+
+# business_trip tests
+
+def test_graph_nine():
+    graph = Graph()
+    a = graph.add_vertex('Metroville')
+    b = graph.add_vertex('Pandora')
+    c = graph.add_vertex('Arendelle')
+    
+    graph.add_edge(a,b,82) 
+    graph.add_edge(a,c,99)
+    graph.add_edge(b,a,82)
+    graph.add_edge(c,a,99)
+    cities = ["Metroville", "Pandora"]
+
+    actual =  business_trip(graph,cities)
+    expected = 82
+    assert actual == expected
+
+
+def test_graph_ten():
+    graph = Graph()
+    a = graph.add_vertex('Metroville')
+    b = graph.add_vertex('Pandora')
+    c = graph.add_vertex('Arendelle')
+    
+    graph.add_edge(a,b,82) 
+    graph.add_edge(a,c,99)
+    graph.add_edge(b,a,82)
+    graph.add_edge(c,a,99)
+    cities = ["Pandora", "Metroville" ,"Arendelle"]
+
+    actual =  business_trip(graph,cities)
+    expected = 181
+    assert actual == expected
+
+def test_graph_eleven():
+    graph = Graph()
+    a = graph.add_vertex('Metroville')
+    b = graph.add_vertex('Pandora')
+    c = graph.add_vertex('Arendelle')
+    
+    graph.add_edge(a,b,82) 
+    graph.add_edge(a,c,99)
+    graph.add_edge(b,a,82)
+    graph.add_edge(c,a,99)
+    cities = ["Metroville", "Pandora","Arendelle"]
+
+    actual =  business_trip(graph,cities)
+    expected = "null"
     assert actual == expected
