@@ -38,6 +38,13 @@ function breadth_first:
 time: O(n)
 space O(n)
 
+function business_trip:
+time: O(v+n*e)
+space O(v+n)
+v = vertices
+n = list size
+e = edges
+
 ## Solution
 
 ### how to run the code
