@@ -24,6 +24,32 @@ class Queue:
         this function job is to return the size of the queue
         """
         return len(self.queue)
+    
+class Stack:
+    def __init__(self):
+        """
+        this is the constructor for the stack 
+        """
+        self.top = deque()
+
+    def push(self,value):
+        """
+        this function job is to add an element to the top of a stack
+        """
+        self.top.append(value)
+    
+    def pop(self):
+        """
+        this function job is to remove the top element from a stack
+        """
+        return self.top.pop()
+    
+    def is_empty(self):
+        """
+        this function job is to return True if the stack is empty or False if not empty
+        """
+        return len(self.top) == 0
+    
 
 class Vertex:
     def __init__(self,value):
@@ -72,7 +98,7 @@ class Graph:
         edge1 = Edge(vertex2,weight)
         edge2 = Edge(vertex1)
         self.__adjacent_list[vertex1].append(edge1)
-        # self.__adjacent_list[vertex1].append(edge2)
+        self.__adjacent_list[vertex2].append(edge2)
         
 
     def get_vertices(self):
@@ -116,33 +142,62 @@ class Graph:
                     visted.add(neighbor)
 
         return list_of_visted_vertex
+    
+    def depth_first(self,vertex):
+        """
+        this function job is to return a list with the depth first traversal starting from the given vertex
+        """
+        list_of_visted_vertex = []
+        visted = set()
+        stack = Stack()
+
+        stack.push(vertex)
+        visted.add(vertex)
+        while not stack.is_empty():
+            current_vertex = stack.pop()
+            list_of_visted_vertex.append(current_vertex.value)
+            neighbors = self.get_neighbors(current_vertex)
+            reversed_neighbors = []
+            for neighbor in neighbors:
+                reversed_neighbors.insert(0,neighbor)
+            for edge in reversed_neighbors:
+                neighbor = edge.vertex
+                if neighbor not in visted:
+                    stack.push(neighbor)
+                    visted.add(neighbor)
+        return list_of_visted_vertex
 
 if __name__ == "__main__":
-    g = Graph()
-    a = g.add_vertex('A')
-    b = g.add_vertex('B')
-    c = g.add_vertex('C')
-    d = g.add_vertex('D')
-    e = g.add_vertex('E')
-
-    g.add_edge(a,b) 
-    g.add_edge(a,c)
-    g.add_edge(b,d)
-    g.add_edge(b,e)
-    g.add_edge(e,d)
-    g.add_edge(e,c)
-    print(g.size())
-    for edge in g.get_vertices():
-        print(str(edge),end=" ")
-    print()
-    for edge in g.get_neighbors(b):
-        print(str(edge),end=" ")
-    print()
-    print(g.breadth_first(a))
+    graph = Graph()
+    a = graph.add_vertex('A')
+    b = graph.add_vertex('B')
+    c = graph.add_vertex('C')
+    d = graph.add_vertex('D')
+    e = graph.add_vertex('E')
+    f = graph.add_vertex('F')
+    g = graph.add_vertex('G')
+    h = graph.add_vertex('H')
+# A, B, C, G, D, E, H, F
+    graph.add_edge(a,b) 
+    graph.add_edge(a,d)
+    graph.add_edge(b,c)
+    graph.add_edge(b,d)
+    graph.add_edge(c,g)
+    graph.add_edge(d,e)
+    graph.add_edge(d,f)
+    graph.add_edge(d,h)
+    # print(graph.size())
+    # for edge in graph.get_vertices():
+    #     print(str(edge),end=" ")
+    # print()
+    # for edge in graph.get_neighbors(b):
+    #     print(str(edge),end=" ")
+    # print()
+    print(graph.depth_first(a))
     
     #     a   b   c   d   e
     # a   [0  1   1   0   0]
-    # b   [0  0   0   1   1]
-    # c   [0  0   0   0   0]
-    # d   [0  0   0   0   0]
-    # e   [0  0   1   1   0]
+    # b   [1  0   0   1   1]
+    # c   [1  0   0   0   1]
+    # d   [0  1   0   0   0]
+    # e   [0  1   1   1   0]
