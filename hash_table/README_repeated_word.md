@@ -1,4 +1,4 @@
-# hash table
+# repeated_word
 
 ## Whiteboard Process
 
