@@ -182,10 +182,10 @@ if __name__ == "__main__":
     graph.add_edge(a,d)
     graph.add_edge(b,c)
     graph.add_edge(b,d)
-    graph.add_edge(c,g)
-    graph.add_edge(d,e)
-    graph.add_edge(d,f)
-    graph.add_edge(d,h)
+    # graph.add_edge(c,g)
+    # graph.add_edge(d,e)
+    # graph.add_edge(d,f)
+    # graph.add_edge(d,h)
     # print(graph.size())
     # for edge in graph.get_vertices():
     #     print(str(edge),end=" ")
@@ -193,7 +193,7 @@ if __name__ == "__main__":
     # for edge in graph.get_neighbors(b):
     #     print(str(edge),end=" ")
     # print()
-    print(graph.depth_first(a))
+    print(graph.depth_first(d))
     
     #     a   b   c   d   e
     # a   [0  1   1   0   0]

@@ -2,10 +2,9 @@
 
 ## Whiteboard Process
 
-<!-- ![Whiteboard_set](./images/set.jpg)
-![Whiteboard_get](./images/get.jpg)
-![Whiteboard_has](./images/has.jpg)
-![Whiteboard_repeated_word](./images/repeated_word.jpg) -->
+![Whiteboard_business_trip](./images/whiteborad1.jpg)
+![Whiteboard_depth_first](./images/whiteborad2.jpg)
+
 
 not done
 
@@ -44,6 +43,10 @@ space O(v+n)
 v = vertices
 n = list size
 e = edges
+
+function depth_first:
+time: O(V)
+space O(V)
 
 ## Solution
 

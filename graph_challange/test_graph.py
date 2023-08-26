@@ -129,3 +129,48 @@ def test_graph_eleven():
     actual =  business_trip(graph,cities)
     expected = "null"
     assert actual == expected
+
+# depth_first tests
+
+def test_graph_twelve():
+    graph = Graph()
+    a = graph.add_vertex('A')
+    b = graph.add_vertex('B')
+    c = graph.add_vertex('C')
+    d = graph.add_vertex('D')
+    
+    graph.add_edge(a,b) 
+    graph.add_edge(a,d)
+    graph.add_edge(b,c)
+    graph.add_edge(b,d)
+
+    actual =  graph.depth_first(a)
+    expected = ['A', 'B', 'C', 'D']
+    assert actual == expected
+
+
+def test_graph_thirteen():
+    graph = Graph()
+    a = graph.add_vertex('A')
+    b = graph.add_vertex('B')
+    c = graph.add_vertex('C')
+    d = graph.add_vertex('D')
+    actual =  graph.depth_first(a)
+    expected = ['A']
+    assert actual == expected
+
+def test_graph_fourteen():
+    graph = Graph()
+    a = graph.add_vertex('A')
+    b = graph.add_vertex('B')
+    c = graph.add_vertex('C')
+    d = graph.add_vertex('D')
+    
+    graph.add_edge(a,b) 
+    graph.add_edge(a,d)
+    graph.add_edge(b,c)
+    graph.add_edge(b,d)
+
+    actual =  graph.depth_first(d)
+    expected = ['D', 'A', 'B', 'C']
+    assert actual == expected
