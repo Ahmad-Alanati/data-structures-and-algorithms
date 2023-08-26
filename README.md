@@ -14,8 +14,10 @@
 
 6. [hash table](./hash_table/README.md)
 
-7. [tree intersection](./treeIntersection/README.md)
+7. [hashmap-repeated-word](./hash_table/README_repeated_word.md)
 
-8. [hashmap left join](./hashmap_left_join//README.md)
+8. [tree intersection](./treeIntersection/README.md)
 
-9. [graph](./graph_challange/README.md)
+9. [hashmap left join](./hashmap_left_join//README.md)
+
+10. [graph](./graph_challange/README.md)
