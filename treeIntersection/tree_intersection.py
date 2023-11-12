@@ -2,6 +2,9 @@ from hash_table_tree import HashTable
 from tree import BinaryTree,Node
 
 def tree_intersection(tree1,tree2):
+    """
+    this function takes two trees and return the intersected nodes in it
+    """
     hash_tree = HashTable()
     tree1_element = tree1.pre_order()
     tree2_element = tree2.pre_order()

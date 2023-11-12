@@ -1,18 +1,16 @@
-# hash table
+# repeated_word
 
 ## Whiteboard Process
 
-![Whiteboard_set](./images/set.jpg)
-![Whiteboard_get](./images/get.jpg)
-![Whiteboard_has](./images/has.jpg)
+![Whiteboard_repeated_word](./images/repeated_word.jpg)
 
 ## Approach & Efficiency
 the aproach is to make the base and test it before starting with adding and more
 
 ### big O
 
-function tree_intersection:
-time: O(n*m)
+function repeated_word:
+time: O(n)
 space O(n)
 
 ## Solution

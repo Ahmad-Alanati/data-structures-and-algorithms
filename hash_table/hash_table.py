@@ -88,6 +88,9 @@ class HashTable:
         return buckets_str
     
 def repeated_word(string):
+    """
+    this function takes a string and return the first repeated word
+    """
     string_arr = re.sub(r"[,.]", "", string).lower().split()
     hash_table = HashTable()
     for element in string_arr:
